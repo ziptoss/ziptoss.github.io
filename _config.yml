@@ -103,4 +103,6 @@ theme: minima
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  type: 'git'
+  repo: 'git@github.com:ziptoss/ziptoss.github.io.git'
+  branch: 'gh-pages'
