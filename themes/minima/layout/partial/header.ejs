@@ -1,0 +1,58 @@
+<div class="row">
+
+  <div class="seven columns ml-1">
+    <h1 class="mt-2">
+      <img src="https://avatars.githubusercontent.com/u/67136867?s=400&u=0aae3a9f28d03e87bc9f17bf5e87d95f7613846e&v=4" width="30" style="vertical-align:middle; margin-right: 15px; box-shadow: none;"><%= theme.title %>
+    </h1>
+  </div>
+  <div class="three columns">
+    <h1 class="mt-2 mode" style="float: right">
+      <div onclick=setLightMode(false) id="darkBtn"><%= theme.switch_dark %></div>
+      <div onclick=setLightMode(true) id="lightBtn" class=hidden><%= theme.switch_light %></div>
+      <script>
+        if (localStorage.getItem('preferredTheme') === 'light') {
+          setLightMode(true)
+          document.body.classList.remove("darkmode");
+        } else {
+          setLightMode(false)
+          document.body.classList.add("darkmode");
+        }
+        function setLightMode(isLight) {
+          var darkBtn = document.getElementById('darkBtn')
+          var lightBtn = document.getElementById('lightBtn')
+          if (isLight) {
+            lightBtn.style.display = "none"
+            darkBtn.style.display = "block"
+            localStorage.setItem('preferredTheme', 'light');
+          } else {
+            lightBtn.style.display = "block"
+            darkBtn.style.display = "none"
+            localStorage.removeItem('preferredTheme');
+          }
+          document.body.classList.toggle("darkmode");
+        }
+      </script>
+    </h1>
+  </div>
+
+  <div class="twelve columns">
+    <div class="row">
+      <div class="nine columns left">
+        <a href="<%= config.root %>">Home</a>
+        <% for (name in theme.menu) { %>
+          <% if (theme.menu[name]) { %>
+          <a href="<%- url_for(theme.menu[name]) %>" class="ml"><%- name %></a>
+          <% } %>
+        <% } %>
+        <% if (theme.email) { %>
+          <% if (typeof obfuscate === "function") { %>
+            <a href="mailto:<%- obfuscate(theme.email) %>" target="_blank" class="ml">Email</a>
+          <% } else { %>
+            <a href="mailto:<%= theme.email %>" target="_blank" class="ml">Email</a>
+          <% } %>
+        <% } %>
+      </div>
+    </div>
+    <hr style="margin-bottom: 2.6rem">
+  </div>
+</div>
