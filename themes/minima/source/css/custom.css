@@ -139,7 +139,6 @@ img {
 }
 
 .mode {
-  position: absolute;
   display: block;
   cursor: pointer;
   -webkit-touch-callout: none; /* iOS Safari */
@@ -321,3 +320,5 @@ body.darkmode {
   }
 
 }
+
+.pointer {cursor: pointer;}
