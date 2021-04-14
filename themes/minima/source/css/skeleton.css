@@ -622,3 +622,18 @@ there.
 
 /* Larger than Desktop HD */
 @media (min-width: 1200px) {}
+
+
+pre {
+  white-space: pre-wrap;
+  font-size: 80%;
+}
+
+td.gutter, td.code {
+   border-bottom: 0px;
+}
+
+.highlight {
+  margin-right: 0;
+  margin-left: 0;
+}
